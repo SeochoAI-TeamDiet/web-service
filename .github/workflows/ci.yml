@@ -23,12 +23,12 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: diet-app
+        working-directory: ./diet-app
 
       - name: Run tests
         run: npm test
-        working-directory: diet-app
+        working-directory: ./diet-app
 
       - name: Build Next.js app
         run: npm run build
-        working-directory: diet-app
+        working-directory: ./diet-app
