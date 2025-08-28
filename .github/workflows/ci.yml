@@ -13,22 +13,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout codes
+        uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '20.17.0'
+          cache: npm
+          cache-dependency-path: diet-app/package-lock.json
 
       - name: Install dependencies
-        run: npm install
-        working-directory: ./diet-app
+        run: npm ci
 
       - name: Run tests
         run: npm test
-        working-directory: ./diet-app
 
       - name: Build Next.js app
         run: npm run build
-        working-directory: ./diet-app
